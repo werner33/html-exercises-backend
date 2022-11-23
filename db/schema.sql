@@ -12,8 +12,8 @@ CREATE TABLE products (
 
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
-    username text NOT NULL,
-    email text NOT NULL, 
+    username text NOT NULL UNIQUE,
+    email text NOT NULL UNIQUE, 
     password text NOT NULL
 );
 

@@ -91,4 +91,15 @@ router.post('/', async (req, res) => {
   }
 })
 
+router.get('/authenticate', async (req, res) => {
+  try {
+   console.log(req.headers);
+
+    console.log(accessToken);
+    res.send({});
+  } catch (error){
+    res.send( 'error')
+  }
+})
+
 module.exports = router;
