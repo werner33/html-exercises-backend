@@ -74,7 +74,6 @@ router.post('/', async (req, res) => {
 
     if(user){
       // Generate JWT Token
-
       let data = jwtTokens(user);
 
       // send successful response 

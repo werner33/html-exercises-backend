@@ -1,10 +1,13 @@
 var express = require('express');
 var router = express.Router();
 
+const authenticateToken = require('../middleware/authorization');
+
+
 const db = require('../db/index');
 
 /* GET home page. */
-router.get('/', async function(req, res, next) {
+router.get('/', authenticateToken, async function(req, res, next) {
 
     try {
         const products = await db.any('SELECT * FROM products');    

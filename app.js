@@ -8,9 +8,10 @@ var logger = require('morgan');
 var cors = require('cors')
 
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var productsRouter = require('./routes/products');
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+const productsRouter = require('./routes/products');
+const accountRouter = require('./routes/accounts');
 
 var app = express();
 app.use(bodyParser.urlencoded({extended: false}));
@@ -35,6 +36,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/products', productsRouter);
+app.use('/accounts', accountRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
