@@ -36,7 +36,7 @@ router.post('/login', async(req, res) => {
     const validPassword = await bcrypt.compare(password, user.password);
 
     if(!validPassword){
-      res.status(401).send({error: "Invalid password."})
+      res.status(401).send({status: 'error', message: "Invalid password for this user."})
       return;
     }
 
@@ -64,6 +64,10 @@ router.post('/', async (req, res) => {
     // validate data
     if(username.length < 4){
       throw({message: 'Username must be 4 characters or more'})
+    }
+
+    if(password.length < 6){
+      throw({message: 'Password must be 6 characters or more'})
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
