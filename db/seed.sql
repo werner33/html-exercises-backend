@@ -14,3 +14,8 @@ INSERT INTO users (username, email, password) VALUES
     ('Sven', 'sven@gmail.com', '123456'),
     ('John', 'john@gmail.com', '123456'),
     ('Maria', 'maria@gmail.com', '123456');
+
+INSERT INTO email_subscriptions (firstname, email) VALUES
+    ('Lupita', 'lupita@gmail.com'),
+    ('Sven', 'sven@gmail.com'),
+    ('Sam', 'sam@hotmail.com');

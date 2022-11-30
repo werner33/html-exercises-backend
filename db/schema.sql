@@ -17,3 +17,9 @@ CREATE TABLE users (
     password text NOT NULL
 );
 
+CREATE TABLE email_subscriptions (
+    id SERIAL PRIMARY KEY, 
+    firstname text,
+    email text NOT NULL UNIQUE
+);
+
