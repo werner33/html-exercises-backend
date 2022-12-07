@@ -1,3 +1,4 @@
+const e = require('express');
 var express = require('express');
 var router = express.Router();
 
@@ -7,6 +8,7 @@ const db = require('../db/index');
 router.post('/', async function(req, res, next) {
     
     try {
+        console.log(req.body)
         // get necessary info from req.body
         let {firstname, email} = req.body;
 

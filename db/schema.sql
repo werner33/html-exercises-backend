@@ -7,7 +7,8 @@ CREATE DATABASE htmlexercises;
 CREATE TABLE products (
     id SERIAL PRIMARY KEY,
     title text NOT NULL,
-    price integer
+    price integer,
+    aws_image_location text
 );
 
 CREATE TABLE users (

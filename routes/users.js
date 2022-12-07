@@ -1,10 +1,10 @@
 var express = require('express');
 var router = express.Router();
 const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
 
 const db = require('../db/index');
 const jwtTokens = require('../utils/jwt-helpers');
+const validateEmail = require('../utils/emailValidation');
 
 /* GET users listing. */
 router.get('/', async function(req, res, next) {
@@ -68,6 +68,11 @@ router.post('/', async (req, res) => {
 
     if(password.length < 6){
       throw({message: 'Password must be 6 characters or more'})
+    }
+
+    //validate email with validateemail function
+    if(!validateEmail(email)){
+      throw({message: 'Please provide a valid email'})
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
